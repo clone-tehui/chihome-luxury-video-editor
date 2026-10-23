@@ -259,7 +259,7 @@ VIDEO_STYLE_THEMES = {
     # Theme 2: Tiêu đề Trắng Kim Cương (Manrope ExtraBold/SemiBold — Kiến trúc tối giản Châu Âu, 3PN/4PN thẳng tắp)
     #          Phụ đề Font Plus Jakarta Sans SemiBold đổi màu Vàng Champagne / Hổ Phách / Ngọc Lục Bảo
     "diamond_white_header": {
-        "h1_file": "CormorantGaramond-Variable.ttf",
+        "h1_file": "Manrope-Variable.ttf",
         "h1_weight": 800,
         "h1_size_v": 29.0,
         "h1_size_h": 34.5,
@@ -322,7 +322,7 @@ VIDEO_STYLE_THEMES = {
     },
     # Theme 4 (Cho bản 16:9 Fast-Cut): Tiêu đề Kem Ngọc Trai Ấm (Manrope) + Phụ đề Plus Jakarta Sans Đa Sắc
     "modern_fastcut_sunset": {
-        "h1_file": "CormorantGaramond-Variable.ttf",
+        "h1_file": "Manrope-Variable.ttf",
         "h1_weight": 800,
         "h1_size_v": 29.0,
         "h1_size_h": 34.5,
