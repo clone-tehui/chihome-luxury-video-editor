@@ -399,7 +399,7 @@ def create_master_header_logo_png(
     f2 = load_luxury_font(theme["h2_file"], f2_size, theme["h2_weight"])
 
     # Dịch xuống 13.2% chiều cao trên bản dọc 9:16 để không chạm thanh tab trên cùng của TikTok
-    top_y = int(height * (0.082 if is_vertical else 0.052))
+    top_y = int(height * (0.132 if is_vertical else 0.052))
     h_color = theme["header_color"]
     h_stroke_w = max(2, int(theme["header_stroke_w"] * scale))
     h_stroke_c = theme["header_stroke_color"]
