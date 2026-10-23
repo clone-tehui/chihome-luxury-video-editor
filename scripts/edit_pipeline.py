@@ -59,7 +59,7 @@ def draw_tracked_uniform_line(
     text: str,
     font: ImageFont.FreeTypeFont,
     fill_color=(255, 255, 255, 255),
-    tracking_px: float = 1.0,
+    tracking_px: float = 3.0,
     word_space_extra: float = 4.0,
     stroke_width: int = 3,
     stroke_fill=(10, 14, 20, 235),
@@ -399,7 +399,7 @@ def create_master_header_logo_png(
     f2 = load_luxury_font(theme["h2_file"], f2_size, theme["h2_weight"])
 
     # Dịch xuống 13.2% chiều cao trên bản dọc 9:16 để không chạm thanh tab trên cùng của TikTok
-    top_y = int(height * (0.132 if is_vertical else 0.052))
+    top_y = int(height * (0.072 if is_vertical else 0.052))
     h_color = theme["header_color"]
     h_stroke_w = max(2, int(theme["header_stroke_w"] * scale))
     h_stroke_c = theme["header_stroke_color"]
