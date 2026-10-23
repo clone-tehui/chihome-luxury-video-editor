@@ -227,8 +227,8 @@ VIDEO_STYLE_THEMES = {
     # Theme 1: Tiêu đề Vàng Champagne Hoàng Gia (Montserrat Bold/SemiBold — Tối giản, sang trọng, chữ số 3PN/4PN thẳng tắp)
     #          Phụ đề Font Be Vietnam Pro Medium (Thanh thoát, dễ nhìn dễ đọc) đổi màu Trắng Ngọc Trai / Xanh Ngọc / Kem Ngà
     "imperial_gold_header": {
-        "h1_file": "Montserrat-Variable.ttf",
-        "h1_weight": 750,
+        "h1_file": "CormorantGaramond-Variable.ttf",
+        "h1_weight": 700,
         "h1_size_v": 28.5,
         "h1_size_h": 34.0,
         "h1_track": 3.0,
@@ -292,8 +292,8 @@ VIDEO_STYLE_THEMES = {
     },
     # Theme 3 (Cho bản 16:9 Ngang): Tiêu đề Vàng Hoàng Gia (Montserrat) + Phụ đề Be Vietnam Pro Thanh Lịch
     "widescreen_imperial_serif": {
-        "h1_file": "Montserrat-Variable.ttf",
-        "h1_weight": 750,
+        "h1_file": "CormorantGaramond-Variable.ttf",
+        "h1_weight": 700,
         "h1_size_v": 28.5,
         "h1_size_h": 34.0,
         "h1_track": 3.4,
@@ -399,7 +399,7 @@ def create_master_header_logo_png(
     f2 = load_luxury_font(theme["h2_file"], f2_size, theme["h2_weight"])
 
     # Dịch xuống 13.2% chiều cao trên bản dọc 9:16 để không chạm thanh tab trên cùng của TikTok
-    top_y = int(height * (0.072 if is_vertical else 0.052))
+    top_y = int(height * (0.078 if is_vertical else 0.052))
     h_color = theme["header_color"]
     h_stroke_w = max(2, int(theme["header_stroke_w"] * scale))
     h_stroke_c = theme["header_stroke_color"]
