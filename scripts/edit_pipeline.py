@@ -33,7 +33,9 @@ import numpy as np
 import imageio_ffmpeg
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
-BASE_DIR = "/Users/apple/.gemini/antigravity/scratch/luxury-video-editor"
+_SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+_REPO_ROOT = os.path.dirname(_SCRIPT_DIR) if os.path.basename(_SCRIPT_DIR) == "scripts" else _SCRIPT_DIR
+BASE_DIR = os.path.join(_REPO_ROOT, "resources") if os.path.isdir(os.path.join(_REPO_ROOT, "resources")) else _REPO_ROOT
 FONT_DIR = os.path.join(BASE_DIR, "fonts")
 BGM_DIR = os.path.join(BASE_DIR, "bgm")
 LOGO_PATH = os.path.join(BASE_DIR, "brand", "chihome-logo-video-ready.png")
@@ -1135,10 +1137,10 @@ if __name__ == "__main__":
     )
     args = parser.parse_args()
     if args.suite == "3pn":
-        src = args.src or "/Users/apple/Downloads/Thư mục mới với các mục 2"
-        out = args.out or "/Users/apple/Downloads/Video_Da_Edit_The_Opera_3PN"
+        src = args.src or "/Users/tehui/Downloads/Thư mục mới với các mục 2"
+        out = args.out or "/Users/tehui/Downloads/Video_Da_Edit_The_Opera_3PN"
         run_opera_3pn_suite(src, out)
     else:
-        src = args.src or "/Users/apple/Downloads/Thư mục mới với các mục"
-        out = args.out or "/Users/apple/Downloads/Video_Da_Edit_The_Opera_4PN"
+        src = args.src or "/Users/tehui/Downloads/Thư mục mới với các mục"
+        out = args.out or "/Users/tehui/Downloads/Video_Da_Edit_The_Opera_4PN"
         run_opera_4pn_suite(src, out)

@@ -46,7 +46,7 @@ Skill này đóng gói toàn bộ quy trình chuẩn để kiểm tra clip thô,
    - **Viền chữ Phụ đề KHÁC HẲN Tiêu đề**: Dùng viền Nâu Espresso / Xám Khói mảnh (`~2.0px` ở 4K) kèm bóng đổ sương mờ mềm mại, **TUYỆT ĐỐI KHÔNG** dùng khung hộp nền.
 
 ### Bước 4: Chuyển Cảnh Mượt Mà Theo Tình Huống (`Contextual xfade Transitions`)
-- Không cắt ngang thô cứng (`hard cut`); sử dụng hàm `build_edited_video(...)` trong [edit_pipeline.py](/Users/apple/.gemini/antigravity/scratch/luxury-video-editor/edit_pipeline.py) để áp dụng bộ chuyển cảnh `xfade` tùy theo hướng lia máy và mạch không gian giữa 2 phòng:
+- Không cắt ngang thô cứng (`hard cut`); sử dụng hàm `build_edited_video(...)` trong [edit_pipeline.py](/Users/tehui/.gemini/antigravity/scratch/luxury-video-editor/edit_pipeline.py) để áp dụng bộ chuyển cảnh `xfade` tùy theo hướng lia máy và mạch không gian giữa 2 phòng:
   - `zoomin` (`0.55s`): Từ ngoài Ban công hút nhẹ vào không gian Phòng khách.
   - `smoothleft` / `smoothright` / `hblur` (`0.45s–0.50s`): Khi 2 cảnh nối tiếp nhau có cùng hướng lia máy ngang (`Pan-to-Pan Match Cut`).
   - `fade` / `dissolve` / `smoothup` (`0.50s–0.55s`): Khi chuyển êm ái giữa các Phòng ngủ hoặc không gian nội thất.
@@ -54,7 +54,7 @@ Skill này đóng gói toàn bộ quy trình chuẩn để kiểm tra clip thô,
 - Phụ đề của cảnh cũ tự động tắt trước điểm giao thoa chuyển cảnh và phụ đề của cảnh mới xuất hiện ngay khi vào cảnh mới.
 
 ### Bước 5: Thương hiệu ChiHome (`chihome.vn`) & Kiểm chứng Chất lượng 4K 10-bit HDR
-- Luôn gắn logo chính thức `chiHome — your dream - your home` ([chihome-logo-video-ready.png](/Users/apple/.gemini/antigravity/scratch/luxury-video-editor/brand/chihome-logo-video-ready.png)) cố định ở chính giữa phía dưới (`bottom-center`).
+- Luôn gắn logo chính thức `chiHome — your dream - your home` ([chihome-logo-video-ready.png](/Users/tehui/.gemini/antigravity/scratch/luxury-video-editor/brand/chihome-logo-video-ready.png)) cố định ở chính giữa phía dưới (`bottom-center`).
 - Xuất video bằng `hevc_videotoolbox -profile:v main10 -pix_fmt p010le -b:v 75M -color_primaries bt2020 -color_trc arib-std-b67 -colorspace bt2020nc -tag:v hvc1` ở `59.94 fps`.
 - Sau khi xuất xong, luôn xóa toàn bộ file tạm trong `/tmp`, kiểm tra bằng `ffmpeg -i` và trích xuất bảng ảnh preview từng cảnh để xác nhận chất lượng hiển thị bằng `read_file`.
 
@@ -62,11 +62,19 @@ Skill này đóng gói toàn bộ quy trình chuẩn để kiểm tra clip thô,
 
 ## 2. Cấu Trúc Thư Mục & Lệnh Thực Thi
 
-- **Môi trường Python**: `/Users/apple/.gemini/antigravity/scratch/agent-reach/.venv/bin/python`
+- **Môi trường Python**: `/Users/tehui/.gemini/antigravity/scratch/luxury-video-editor/.venv/bin/python`
 - **Script dựng phim chính (hỗ trợ `xfade` + Persistent Header + Dynamic 1-Line Subtitle)**:
-  - Bản chính: `/Users/apple/.gemini/antigravity/scratch/luxury-video-editor/edit_pipeline.py`
-  - Bản sao lưu trong Skill: `/Users/apple/.gemini/config/skills/chihome-luxury-video-editor/scripts/edit_pipeline.py`
+  - Bản chính: `/Users/tehui/.gemini/antigravity/scratch/luxury-video-editor/edit_pipeline.py`
+  - Bản sao lưu trong Skill: `/Users/tehui/.gemini/config/skills/chihome-luxury-video-editor/scripts/edit_pipeline.py`
 - **Script quét tự động thư mục mới**:
-  - `/Users/apple/.gemini/antigravity/scratch/luxury-video-editor/auto_edit_folder.py`
-- **Thư mục Font Luxury Tối Giản**: `/Users/apple/.gemini/antigravity/scratch/luxury-video-editor/fonts/` (`Montserrat-Variable.ttf`, `Manrope-Variable.ttf`, `BeVietnamPro-Medium.ttf`, `BeVietnamPro-SemiBold.ttf`, `BeVietnamPro-Bold.ttf`, `PlusJakartaSans-Variable.ttf`)
-- **Thư mục Nhạc nền BGM**: `/Users/apple/.gemini/antigravity/scratch/luxury-video-editor/bgm/`
+  - `/Users/tehui/.gemini/antigravity/scratch/luxury-video-editor/auto_edit_folder.py`
+- **Thư mục Font Luxury Tối Giản**: `/Users/tehui/.gemini/antigravity/scratch/luxury-video-editor/fonts/` (`Montserrat-Variable.ttf`, `Manrope-Variable.ttf`, `BeVietnamPro-Medium.ttf`, `BeVietnamPro-SemiBold.ttf`, `BeVietnamPro-Bold.ttf`, `PlusJakartaSans-Variable.ttf`)
+- **Thư mục Nhạc nền BGM**: `/Users/tehui/.gemini/antigravity/scratch/luxury-video-editor/bgm/`
+
+---
+
+## 3. Bước 6 Bắt Buộc: Đăng ký lên Thư viện “Video của tôi” (`video-shotcraft`)
+- Sau khi hoàn thành xuất video MP4 (dù từ `/chihome-luxury-video-editor` hay bất kỳ quy trình dựng nào), **bắt buộc** đưa video và timeline lên trang chính **“Video của tôi”** (`http://127.0.0.1:5215/`):
+  1. Tạo project Workbench hoặc dùng `/Users/tehui/Documents/Codex/Tools/video-shotcraft/local/hub/koc-handoff.py` kèm ảnh bìa `.shotcraft/poster.jpg` và thư mục `exports/`.
+  2. Đăng ký và khởi chạy bằng `/Users/tehui/Documents/Codex/Tools/video-shotcraft/.tools/bin/shotcraft register <project_dir> --name "<Tên video>"`, `shotcraft start`, và `shotcraft open <SC-xxxx>`.
+  3. Gửi mã `SC-xxxx` và link Workbench riêng cho người dùng.
